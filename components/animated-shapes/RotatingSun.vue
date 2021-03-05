@@ -22,16 +22,16 @@ export default {
   created () {
     if (process.browser) {
       // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('mousemove', this.parallax)
+      window.addEventListener('mousemove', this.rotate)
     }
   },
   destroyed () {
     if (process.browser) {
-      window.removeEventListener('mousemove', this.parallax)
+      window.removeEventListener('mousemove', this.rotate)
     }
   },
   methods: {
-    parallax (e) {
+    rotate (e) {
       if (process.browser) {
         this.$refs.sun.style.transform = `rotate(${(window.innerWidth - e.pageX) / 15}deg)`
       }
